@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#  SPDX-License-Identifier: MIT-0
+
+import sys
+
+if __name__ == '__main__':
+    # 学習済みモデルを使用するので学習は省略
+
+    # A zero exit code causes the job to be marked a Succeeded.
+    sys.exit(0)

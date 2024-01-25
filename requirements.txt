@@ -1,0 +1,17 @@
+aws-cdk-lib==2.104.0
+constructs>=10.0.0,<11.0.0
+boto3~=1.28.65
+pydub~=0.25.1
+pyannote.audio~=3.0
+fleep~=1.0.1
+aws_cdk.aws_batch_alpha>=2.72.0a
+aws_solutions_constructs.aws_fargate_opensearch
+aws-cdk.aws-amplify-alpha
+aws-cdk.aws-apigatewayv2-alpha
+aws-cdk.aws-apigatewayv2-integrations-alpha
+aws-cdk.aws-apigatewayv2-authorizers-alpha
+aws_cdk.aws_cognito_identitypool_alpha
+aws_cdk.aws_sagemaker_alpha
+botocore~=1.31.72
+flask~=3.0.0
+torch~=2.1.0

@@ -1,0 +1,976 @@
+{
+    "RawTranscript": [
+        "Agent:  Um\n",
+        "Customer:  हैलो, हाई आड़ियो\n",
+        "Agent: \n",
+        "Agent:  Thank you.\n",
+        "Customer:  अगर यू आदित या?\n",
+        "Agent:  Down with your\n",
+        "Customer:  What happened?\n",
+        "Agent:  Why don't you?\n",
+        "Customer:  Oh, okay. I see most of us are down even I don't feel very great today.\n",
+        "Agent:  Bye.\n",
+        "Customer:  Anyways, so what are you doing right now? Just take a rest. Drink a lot.\n",
+        "Agent:  Yeah.\n",
+        "Customer:  drink a lot of soups and you know make sure that you're eating you know comfortable food for now recover from it take two three days recover from it completely and then get back to the program okay\n",
+        "Agent:  Yeah.\n",
+        "Customer: \n",
+        "Customer:  And if you, if it's been for a very long time, you can also take a pause from the program.\n",
+        "Agent: \n",
+        "Customer:  for a week or so and then get back to it when you're feeling fresh. So we are not missing out any days of the program. Okay.\n",
+        "Agent:  Thank you for listening.\n",
+        "Agent:  All right.\n",
+        "Customer:  Okay, so take rest now, no worries and you know, since how long have you been down with fever?\n",
+        "Agent:  It's like a formula that makes it.\n",
+        "Customer:  Okay, okay. So hopefully you get this soon. Did you meet the doctor?\n",
+        "Agent:  You want.\n",
+        "Customer:  Okay, alright. So, don't try to do the intermittent fasting or anything as of now. Just eat, you know, all main thing, don't eat anything raw.\n",
+        "Agent:  God\n",
+        "Customer:  No raw salad, no raw fruit or anything as such. Everything has to be cooked and sterilized because your body is already fighting a virus, right? So you don't want to give in another virus into your body or anything else. Even a smaller infection right now can worsen the condition, okay? Yeah. So that and hydration.\n",
+        "Agent: \n",
+        "Customer:  Remember, hydration is supposed to be optimum, okay?\n",
+        "Agent:  Yeah.\n",
+        "Customer:  Um, I saw that you were initially, you know, posting your, uh, uh, you know, your glucose levels and everything, and then it stopped, um, no problem, get back from the fever and then let's start, okay?\n",
+        "Agent:  Oh\n",
+        "Customer:  Anything else that you want to discuss about right now anything that you're personally facing struggles with?\n",
+        "Agent:  No.\n",
+        "Customer:  No, okay. Weight has dropped or, you know, it has been the same?\n",
+        "Agent:  You know, I don't shame on that.\n",
+        "Customer:  Okay, okay\n",
+        "Agent:  here.\n",
+        "Customer:  All right. So, no worries. Let's, you know, so would you want to take a pause now or it's fine? Do you want me to apply for a pause for you or do you want to see in another two, three days? If you get back better, you will join back.\n",
+        "Agent:  I'll get a little better when we come back.\n",
+        "Customer:  Okay, do one thing. Once you feel better, please remember to book a call with me and let's you know, restart. Okay, once again. So until then, take rest. Okay.\n",
+        "Agent:  So you know\n",
+        "Agent:  Yeah. All right.\n",
+        "Customer:  All right. Thank you. Take care.\n",
+        "Agent: \n",
+        "Customer:  Yeah.\n"
+    ],
+    "SpeechSegments": [
+        {
+            "Line": 0,
+            "RawText": "Agent:  Um",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Um",
+            "SegmentStartTimeText": "00:00:06.103",
+            "SegmentEndTimeText": "00:00:06.494",
+            "SegmentStartTime": "6.103",
+            "SegmentEndTime": "6.494",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 5.801510633318685e-05,
+                "Negative": 0.0006116167642176151,
+                "Neutral": 0.9954948425292969,
+                "Positive": 0.0038355302531272173
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 1,
+            "RawText": "Customer:  हैलो, हाई आड़ियो",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "हैलो, हाई आड़ियो",
+            "SegmentStartTimeText": "00:00:06.918",
+            "SegmentEndTimeText": "00:00:08.056",
+            "SegmentStartTime": "6.918",
+            "SegmentEndTime": "8.056",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0003710778837557882,
+                "Negative": 0.02967970445752144,
+                "Neutral": 0.9634345173835754,
+                "Positive": 0.006514663342386484
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 2,
+            "RawText": "Agent:",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "",
+            "SegmentStartTimeText": "00:00:07.512",
+            "SegmentEndTimeText": "00:00:07.920",
+            "SegmentStartTime": "7.512",
+            "SegmentEndTime": "7.920",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0001963483664439991,
+                "Negative": 0.0006620661588385701,
+                "Neutral": 0.9969125986099243,
+                "Positive": 0.0022290153428912163
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 3,
+            "RawText": "Agent:  Thank you.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Thank you.",
+            "SegmentStartTimeText": "00:00:09.821",
+            "SegmentEndTimeText": "00:00:11.027",
+            "SegmentStartTime": "9.821",
+            "SegmentEndTime": "11.027",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.0036730628926306963,
+                "Negative": 0.0018223637016490102,
+                "Neutral": 0.09466709196567535,
+                "Positive": 0.8998374938964844
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 4,
+            "RawText": "Customer:  अगर यू आदित या?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "अगर यू आदित या?",
+            "SegmentStartTimeText": "00:00:11.400",
+            "SegmentEndTimeText": "00:00:12.385",
+            "SegmentStartTime": "11.400",
+            "SegmentEndTime": "12.385",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 9.686990779300686e-06,
+                "Negative": 0.00037632344174198806,
+                "Neutral": 0.9983483552932739,
+                "Positive": 0.0012656686594709754
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 5,
+            "RawText": "Agent:  Down with your",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Down with your",
+            "SegmentStartTimeText": "00:00:13.998",
+            "SegmentEndTimeText": "00:00:15.356",
+            "SegmentStartTime": "13.998",
+            "SegmentEndTime": "15.356",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0001793524279491976,
+                "Negative": 0.034325432032346725,
+                "Neutral": 0.9465109705924988,
+                "Positive": 0.01898416504263878
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 6,
+            "RawText": "Customer:  What happened?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "What happened?",
+            "SegmentStartTimeText": "00:00:16.035",
+            "SegmentEndTimeText": "00:00:16.629",
+            "SegmentStartTime": "16.035",
+            "SegmentEndTime": "16.629",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.014894935302436352,
+                "Negative": 0.09468092769384384,
+                "Neutral": 0.8841392397880554,
+                "Positive": 0.006284912582486868
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 7,
+            "RawText": "Agent:  Why don't you?",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Why don't you?",
+            "SegmentStartTimeText": "00:00:18.157",
+            "SegmentEndTimeText": "00:00:19.719",
+            "SegmentStartTime": "18.157",
+            "SegmentEndTime": "19.719",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0006038920837454498,
+                "Negative": 0.03740862384438515,
+                "Neutral": 0.9592230319976807,
+                "Positive": 0.002764423843473196
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 8,
+            "RawText": "Customer:  Oh, okay. I see most of us are down even I don't feel very great today.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Oh, okay. I see most of us are down even I don't feel very great today.",
+            "SegmentStartTimeText": "00:00:20.365",
+            "SegmentEndTimeText": "00:00:21.876",
+            "SegmentStartTime": "20.365",
+            "SegmentEndTime": "21.876",
+            "BaseSentiment": "NEGATIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.016921138390898705,
+                "Negative": 0.6936293244361877,
+                "Neutral": 0.25400781631469727,
+                "Positive": 0.035441718995571136
+            },
+            "EntitiesDetected": [
+                {
+                    "BeginOffset": 76,
+                    "EndOffset": 81,
+                    "Score": 0.9955522643093564,
+                    "Text": "today",
+                    "Type": "DATE"
+                }
+            ]
+        },
+        {
+            "Line": 9,
+            "RawText": "Agent:  Bye.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Bye.",
+            "SegmentStartTimeText": "00:00:22.283",
+            "SegmentEndTimeText": "00:00:26.494",
+            "SegmentStartTime": "22.283",
+            "SegmentEndTime": "26.494",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 8.677665755385533e-05,
+                "Negative": 0.0005040599498897791,
+                "Neutral": 0.9976547956466675,
+                "Positive": 0.0017543131252750754
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 10,
+            "RawText": "Customer:  Anyways, so what are you doing right now? Just take a rest. Drink a lot.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Anyways, so what are you doing right now? Just take a rest. Drink a lot.",
+            "SegmentStartTimeText": "00:00:26.884",
+            "SegmentEndTimeText": "00:00:28.123",
+            "SegmentStartTime": "26.884",
+            "SegmentEndTime": "28.123",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0035090164747089148,
+                "Negative": 0.048383112996816635,
+                "Neutral": 0.7875769138336182,
+                "Positive": 0.1605309695005417
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 11,
+            "RawText": "Agent:  Yeah.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Yeah.",
+            "SegmentStartTimeText": "00:00:27.614",
+            "SegmentEndTimeText": "00:00:27.988",
+            "SegmentStartTime": "27.614",
+            "SegmentEndTime": "27.988",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.004718215204775333,
+                "Negative": 0.006444836035370827,
+                "Neutral": 0.9464319944381714,
+                "Positive": 0.04240497574210167
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 12,
+            "RawText": "Customer:  drink a lot of soups and you know make sure that you're eating you know comfortable food for now recover from it take two three days recover from it completely and then get back to the program okay",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "drink a lot of soups and you know make sure that you're eating you know comfortable food for now recover from it take two three days recover from it completely and then get back to the program okay",
+            "SegmentStartTimeText": "00:00:28.633",
+            "SegmentEndTimeText": "00:00:31.740",
+            "SegmentStartTime": "28.633",
+            "SegmentEndTime": "31.740",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.2102646380662918,
+                "Negative": 0.08757509291172028,
+                "Neutral": 0.5398526191711426,
+                "Positive": 0.16230762004852295
+            },
+            "EntitiesDetected": [
+                {
+                    "BeginOffset": 17,
+                    "EndOffset": 31,
+                    "Score": 0.8447676272039388,
+                    "Text": "a lot of soups",
+                    "Type": "QUANTITY"
+                },
+                {
+                    "BeginOffset": 129,
+                    "EndOffset": 143,
+                    "Score": 0.9732261420420281,
+                    "Text": "two three days",
+                    "Type": "QUANTITY"
+                }
+            ]
+        },
+        {
+            "Line": 13,
+            "RawText": "Agent:  Yeah.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Yeah.",
+            "SegmentStartTimeText": "00:00:31.893",
+            "SegmentEndTimeText": "00:00:33.149",
+            "SegmentStartTime": "31.893",
+            "SegmentEndTime": "33.149",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.004718215204775333,
+                "Negative": 0.006444836035370827,
+                "Neutral": 0.9464319944381714,
+                "Positive": 0.04240497574210167
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 14,
+            "RawText": "Customer:",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "",
+            "SegmentStartTimeText": "00:00:32.809",
+            "SegmentEndTimeText": "00:00:33.234",
+            "SegmentStartTime": "32.809",
+            "SegmentEndTime": "33.234",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.025831449776887894,
+                "Negative": 0.009433391503989697,
+                "Neutral": 0.9358651041984558,
+                "Positive": 0.028870072215795517
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 15,
+            "RawText": "Customer:  And if you, if it's been for a very long time, you can also take a pause from the program.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "And if you, if it's been for a very long time, you can also take a pause from the program.",
+            "SegmentStartTimeText": "00:00:33.607",
+            "SegmentEndTimeText": "00:00:34.762",
+            "SegmentStartTime": "33.607",
+            "SegmentEndTime": "34.762",
+            "BaseSentiment": "NEGATIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.00482184486463666,
+                "Negative": 0.5583197474479675,
+                "Neutral": 0.3681720793247223,
+                "Positive": 0.06868632137775421
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 16,
+            "RawText": "Agent:",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "",
+            "SegmentStartTimeText": "00:00:35.509",
+            "SegmentEndTimeText": "00:00:47.088",
+            "SegmentStartTime": "35.509",
+            "SegmentEndTime": "47.088",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0001963483664439991,
+                "Negative": 0.0006620661588385701,
+                "Neutral": 0.9969125986099243,
+                "Positive": 0.0022290153428912163
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 17,
+            "RawText": "Customer:  for a week or so and then get back to it when you're feeling fresh. So we are not missing out any days of the program. Okay.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "for a week or so and then get back to it when you're feeling fresh. So we are not missing out any days of the program. Okay.",
+            "SegmentStartTimeText": "00:00:47.461",
+            "SegmentEndTimeText": "00:00:47.988",
+            "SegmentStartTime": "47.461",
+            "SegmentEndTime": "47.988",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.022178012877702713,
+                "Negative": 0.1059379130601883,
+                "Neutral": 0.4259801208972931,
+                "Positive": 0.4459039866924286
+            },
+            "EntitiesDetected": [
+                {
+                    "BeginOffset": 15,
+                    "EndOffset": 21,
+                    "Score": 0.8942734039746847,
+                    "Text": "a week",
+                    "Type": "QUANTITY"
+                }
+            ]
+        },
+        {
+            "Line": 18,
+            "RawText": "Agent:  Thank you for listening.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Thank you for listening.",
+            "SegmentStartTimeText": "00:00:47.954",
+            "SegmentEndTimeText": "00:00:48.361",
+            "SegmentStartTime": "47.954",
+            "SegmentEndTime": "48.361",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 4.8855101340450346e-05,
+                "Negative": 0.00023649659124203026,
+                "Neutral": 0.009815860539674759,
+                "Positive": 0.9898987412452698
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 19,
+            "RawText": "Agent:  All right.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "All right.",
+            "SegmentStartTimeText": "00:00:48.056",
+            "SegmentEndTimeText": "00:00:48.174",
+            "SegmentStartTime": "48.056",
+            "SegmentEndTime": "48.174",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.0003572458226699382,
+                "Negative": 0.00105284561868757,
+                "Neutral": 0.16792915761470795,
+                "Positive": 0.8306607604026794
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 20,
+            "RawText": "Customer:  Okay, so take rest now, no worries and you know, since how long have you been down with fever?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Okay, so take rest now, no worries and you know, since how long have you been down with fever?",
+            "SegmentStartTimeText": "00:00:48.259",
+            "SegmentEndTimeText": "00:00:53.149",
+            "SegmentStartTime": "48.259",
+            "SegmentEndTime": "53.149",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.020148007199168205,
+                "Negative": 0.058733150362968445,
+                "Neutral": 0.6950479745864868,
+                "Positive": 0.22607089579105377
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 21,
+            "RawText": "Agent:  It's like a formula that makes it.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "It's like a formula that makes it.",
+            "SegmentStartTimeText": "00:00:48.904",
+            "SegmentEndTimeText": "00:00:48.938",
+            "SegmentStartTime": "48.904",
+            "SegmentEndTime": "48.938",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.004381528589874506,
+                "Negative": 0.03210627660155296,
+                "Neutral": 0.6497216820716858,
+                "Positive": 0.31379052996635437
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 22,
+            "RawText": "Customer:  Okay, okay. So hopefully you get this soon. Did you meet the doctor?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Okay, okay. So hopefully you get this soon. Did you meet the doctor?",
+            "SegmentStartTimeText": "00:00:53.471",
+            "SegmentEndTimeText": "00:00:57.665",
+            "SegmentStartTime": "53.471",
+            "SegmentEndTime": "57.665",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0005149174830876291,
+                "Negative": 0.00813340675085783,
+                "Neutral": 0.7767763733863831,
+                "Positive": 0.21457524597644806
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 23,
+            "RawText": "Agent:  You want.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "You want.",
+            "SegmentStartTimeText": "00:00:57.784",
+            "SegmentEndTimeText": "00:01:00.840",
+            "SegmentStartTime": "57.784",
+            "SegmentEndTime": "60.840",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0004190684703644365,
+                "Negative": 0.002273043617606163,
+                "Neutral": 0.7345659732818604,
+                "Positive": 0.26274195313453674
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 24,
+            "RawText": "Customer:  Okay, alright. So, don't try to do the intermittent fasting or anything as of now. Just eat, you know, all main thing, don't eat anything raw.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Okay, alright. So, don't try to do the intermittent fasting or anything as of now. Just eat, you know, all main thing, don't eat anything raw.",
+            "SegmentStartTimeText": "00:00:58.633",
+            "SegmentEndTimeText": "00:00:58.972",
+            "SegmentStartTime": "58.633",
+            "SegmentEndTime": "58.972",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.005244221538305283,
+                "Negative": 0.3815263509750366,
+                "Neutral": 0.5888530015945435,
+                "Positive": 0.024376453831791878
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 25,
+            "RawText": "Agent:  God",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "God",
+            "SegmentStartTimeText": "00:01:01.638",
+            "SegmentEndTimeText": "00:01:01.825",
+            "SegmentStartTime": "61.638",
+            "SegmentEndTime": "61.825",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.00012346054427325726,
+                "Negative": 0.0025721979327499866,
+                "Neutral": 0.7625278830528259,
+                "Positive": 0.23477645218372345
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 26,
+            "RawText": "Customer:  No raw salad, no raw fruit or anything as such. Everything has to be cooked and sterilized because your body is already fighting a virus, right? So you don't want to give in another virus into your body or anything else. Even a smaller infection right now can worsen the condition, okay? Yeah. So that and hydration.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "No raw salad, no raw fruit or anything as such. Everything has to be cooked and sterilized because your body is already fighting a virus, right? So you don't want to give in another virus into your body or anything else. Even a smaller infection right now can worsen the condition, okay? Yeah. So that and hydration.",
+            "SegmentStartTimeText": "00:01:02.470",
+            "SegmentEndTimeText": "00:01:08.667",
+            "SegmentStartTime": "62.470",
+            "SegmentEndTime": "68.667",
+            "BaseSentiment": "NEGATIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.007387466263025999,
+                "Negative": 0.7724063396453857,
+                "Neutral": 0.19987721741199493,
+                "Positive": 0.020328965038061142
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 27,
+            "RawText": "Agent:",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "",
+            "SegmentStartTimeText": "00:01:10.365",
+            "SegmentEndTimeText": "00:01:13.013",
+            "SegmentStartTime": "70.365",
+            "SegmentEndTime": "73.013",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 4.940721555612981e-05,
+                "Negative": 0.00010868379467865452,
+                "Neutral": 0.9990665316581726,
+                "Positive": 0.0007753763347864151
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 28,
+            "RawText": "Customer:  Remember, hydration is supposed to be optimum, okay?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Remember, hydration is supposed to be optimum, okay?",
+            "SegmentStartTimeText": "00:01:13.879",
+            "SegmentEndTimeText": "00:01:15.000",
+            "SegmentStartTime": "73.879",
+            "SegmentEndTime": "75.000",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0027076094411313534,
+                "Negative": 0.02120109088718891,
+                "Neutral": 0.894575297832489,
+                "Positive": 0.08151591569185257
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 29,
+            "RawText": "Agent:  Yeah.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Yeah.",
+            "SegmentStartTimeText": "00:01:15.084",
+            "SegmentEndTimeText": "00:01:17.648",
+            "SegmentStartTime": "75.084",
+            "SegmentEndTime": "77.648",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.002165749669075012,
+                "Negative": 0.0029321331530809402,
+                "Neutral": 0.9299174547195435,
+                "Positive": 0.06498457491397858
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 30,
+            "RawText": "Customer:  Um, I saw that you were initially, you know, posting your, uh, uh, you know, your glucose levels and everything, and then it stopped, um, no problem, get back from the fever and then let's start, okay?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Um, I saw that you were initially, you know, posting your, uh, uh, you know, your glucose levels and everything, and then it stopped, um, no problem, get back from the fever and then let's start, okay?",
+            "SegmentStartTimeText": "00:01:18.531",
+            "SegmentEndTimeText": "00:01:18.786",
+            "SegmentStartTime": "78.531",
+            "SegmentEndTime": "78.786",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0006452318630181253,
+                "Negative": 0.07148301601409912,
+                "Neutral": 0.8145073056221008,
+                "Positive": 0.11336452513933182
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 31,
+            "RawText": "Agent:  Oh",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Oh",
+            "SegmentStartTimeText": "00:01:19.550",
+            "SegmentEndTimeText": "00:01:25.730",
+            "SegmentStartTime": "79.550",
+            "SegmentEndTime": "85.730",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 4.778742550115567e-06,
+                "Negative": 0.0005842677201144397,
+                "Neutral": 0.9987972974777222,
+                "Positive": 0.0006136861629784107
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 32,
+            "RawText": "Customer:  Anything else that you want to discuss about right now anything that you're personally facing struggles with?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Anything else that you want to discuss about right now anything that you're personally facing struggles with?",
+            "SegmentStartTimeText": "00:01:26.137",
+            "SegmentEndTimeText": "00:01:30.263",
+            "SegmentStartTime": "86.137",
+            "SegmentEndTime": "90.263",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.011871237307786942,
+                "Negative": 0.23752601444721222,
+                "Neutral": 0.6851521134376526,
+                "Positive": 0.06545061618089676
+            },
+            "EntitiesDetected": [
+                {
+                    "BeginOffset": 56,
+                    "EndOffset": 61,
+                    "Score": 0.5052855860529192,
+                    "Text": "right",
+                    "Type": "DATE"
+                },
+                {
+                    "BeginOffset": 62,
+                    "EndOffset": 65,
+                    "Score": 0.39712583348657776,
+                    "Text": "now",
+                    "Type": "DATE"
+                }
+            ]
+        },
+        {
+            "Line": 33,
+            "RawText": "Agent:  No.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "No.",
+            "SegmentStartTimeText": "00:01:26.561",
+            "SegmentEndTimeText": "00:01:27.037",
+            "SegmentStartTime": "86.561",
+            "SegmentEndTime": "87.037",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0003287809086032212,
+                "Negative": 0.010268688201904297,
+                "Neutral": 0.9890905022621155,
+                "Positive": 0.00031204914557747543
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 34,
+            "RawText": "Customer:  No, okay. Weight has dropped or, you know, it has been the same?",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "No, okay. Weight has dropped or, you know, it has been the same?",
+            "SegmentStartTimeText": "00:01:30.602",
+            "SegmentEndTimeText": "00:01:37.105",
+            "SegmentStartTime": "90.602",
+            "SegmentEndTime": "97.105",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.025458665564656258,
+                "Negative": 0.25661787390708923,
+                "Neutral": 0.6864528059959412,
+                "Positive": 0.03147060051560402
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 35,
+            "RawText": "Agent:  You know, I don't shame on that.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "You know, I don't shame on that.",
+            "SegmentStartTimeText": "00:01:37.665",
+            "SegmentEndTimeText": "00:01:47.614",
+            "SegmentStartTime": "97.665",
+            "SegmentEndTime": "107.614",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.021182766184210777,
+                "Negative": 0.018520887941122055,
+                "Neutral": 0.8081009387969971,
+                "Positive": 0.15219545364379883
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 36,
+            "RawText": "Customer:  Okay, okay",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Okay, okay",
+            "SegmentStartTimeText": "00:01:48.123",
+            "SegmentEndTimeText": "00:01:48.616",
+            "SegmentStartTime": "108.123",
+            "SegmentEndTime": "108.616",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0001253726804861799,
+                "Negative": 0.0019307415932416916,
+                "Neutral": 0.9011467099189758,
+                "Positive": 0.09679719805717468
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 37,
+            "RawText": "Agent:  here.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "here.",
+            "SegmentStartTimeText": "00:01:48.718",
+            "SegmentEndTimeText": "00:01:48.752",
+            "SegmentStartTime": "108.718",
+            "SegmentEndTime": "108.752",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.00016280845738947392,
+                "Negative": 0.0002896089863497764,
+                "Neutral": 0.9975097179412842,
+                "Positive": 0.0020378355402499437
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 38,
+            "RawText": "Customer:  All right. So, no worries. Let's, you know, so would you want to take a pause now or it's fine? Do you want me to apply for a pause for you or do you want to see in another two, three days? If you get back better, you will join back.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "All right. So, no worries. Let's, you know, so would you want to take a pause now or it's fine? Do you want me to apply for a pause for you or do you want to see in another two, three days? If you get back better, you will join back.",
+            "SegmentStartTimeText": "00:01:49.414",
+            "SegmentEndTimeText": "00:01:52.657",
+            "SegmentStartTime": "109.414",
+            "SegmentEndTime": "112.657",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.1086934506893158,
+                "Negative": 0.020356453955173492,
+                "Neutral": 0.32048749923706055,
+                "Positive": 0.5504626631736755
+            },
+            "EntitiesDetected": [
+                {
+                    "BeginOffset": 184,
+                    "EndOffset": 187,
+                    "Score": 0.9963376436858928,
+                    "Text": "two",
+                    "Type": "QUANTITY"
+                },
+                {
+                    "BeginOffset": 189,
+                    "EndOffset": 199,
+                    "Score": 0.9912903737364971,
+                    "Text": "three days",
+                    "Type": "QUANTITY"
+                }
+            ]
+        },
+        {
+            "Line": 39,
+            "RawText": "Agent:  I'll get a little better when we come back.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "I'll get a little better when we come back.",
+            "SegmentStartTimeText": "00:01:49.448",
+            "SegmentEndTimeText": "00:01:49.838",
+            "SegmentStartTime": "109.448",
+            "SegmentEndTime": "109.838",
+            "BaseSentiment": "NEGATIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.0032395711168646812,
+                "Negative": 0.37617263197898865,
+                "Neutral": 0.36674439907073975,
+                "Positive": 0.25384342670440674
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 40,
+            "RawText": "Customer:  Okay, do one thing. Once you feel better, please remember to book a call with me and let's you know, restart. Okay, once again. So until then, take rest. Okay.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Okay, do one thing. Once you feel better, please remember to book a call with me and let's you know, restart. Okay, once again. So until then, take rest. Okay.",
+            "SegmentStartTimeText": "00:01:53.030",
+            "SegmentEndTimeText": "00:01:56.290",
+            "SegmentStartTime": "113.030",
+            "SegmentEndTime": "116.290",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.0188804529607296,
+                "Negative": 0.1007389947772026,
+                "Neutral": 0.7884530425071716,
+                "Positive": 0.09192758798599243
+            },
+            "EntitiesDetected": [
+                {
+                    "BeginOffset": 20,
+                    "EndOffset": 23,
+                    "Score": 0.9171913262217648,
+                    "Text": "one",
+                    "Type": "QUANTITY"
+                }
+            ]
+        },
+        {
+            "Line": 41,
+            "RawText": "Agent:  So you know",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "So you know",
+            "SegmentStartTimeText": "00:01:56.799",
+            "SegmentEndTimeText": "00:01:57.325",
+            "SegmentStartTime": "116.799",
+            "SegmentEndTime": "117.325",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 2.2981217625783756e-05,
+                "Negative": 0.001166865462437272,
+                "Neutral": 0.9956706762313843,
+                "Positive": 0.00313941715285182
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 42,
+            "RawText": "Agent:  Yeah. All right.",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "Yeah. All right.",
+            "SegmentStartTimeText": "00:01:57.325",
+            "SegmentEndTimeText": "00:01:57.886",
+            "SegmentStartTime": "117.325",
+            "SegmentEndTime": "117.886",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.001244271406903863,
+                "Negative": 0.002154752379283309,
+                "Neutral": 0.2650899589061737,
+                "Positive": 0.7315109968185425
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 43,
+            "RawText": "Customer:  All right. Thank you. Take care.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "All right. Thank you. Take care.",
+            "SegmentStartTimeText": "00:01:57.393",
+            "SegmentEndTimeText": "00:02:06.154",
+            "SegmentStartTime": "117.393",
+            "SegmentEndTime": "126.154",
+            "BaseSentiment": "POSITIVE",
+            "BaseSentimentScores": {
+                "Mixed": 0.00040090479888021946,
+                "Negative": 0.00023116098600439727,
+                "Neutral": 0.014904038049280643,
+                "Positive": 0.9844638705253601
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 44,
+            "RawText": "Agent:",
+            "SegmentSpeaker": "Agent",
+            "DisplayText": "",
+            "SegmentStartTimeText": "00:02:06.748",
+            "SegmentEndTimeText": "00:02:10.449",
+            "SegmentStartTime": "126.748",
+            "SegmentEndTime": "130.449",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 4.940721555612981e-05,
+                "Negative": 0.00010868379467865452,
+                "Neutral": 0.9990665316581726,
+                "Positive": 0.0007753763347864151
+            },
+            "EntitiesDetected": []
+        },
+        {
+            "Line": 45,
+            "RawText": "Customer:  Yeah.",
+            "SegmentSpeaker": "Customer",
+            "DisplayText": "Yeah.",
+            "SegmentStartTimeText": "00:02:10.738",
+            "SegmentEndTimeText": "00:02:11.910",
+            "SegmentStartTime": "130.738",
+            "SegmentEndTime": "131.910",
+            "BaseSentiment": "NEUTRAL",
+            "BaseSentimentScores": {
+                "Mixed": 0.04812844842672348,
+                "Negative": 0.011279115453362465,
+                "Neutral": 0.7938264012336731,
+                "Positive": 0.1467660814523697
+            },
+            "EntitiesDetected": []
+        }
+    ],
+    "ConversationAnalytics": {
+        "SourceInformation": {
+            "TranscribeJobInfo": {
+                "LastModified": "2023-11-21T15:38:38+00:00",
+                "ContentType": "audio/mp3",
+                "ContentLength": 748800,
+                "ExecutionArn": "arn:aws:states:us-east-1:606163909676:execution:CISteps98C29840-7kk0eKktn6sH:9e93acfb-ba83-40aa-9c0b-121425020cb9",
+                "ExecutionStartedAt": "2023-11-21T15:38:39.783000+00:00",
+                "ExecutionCompletedAt": "2023-11-21T15:57:38.539366"
+            },
+            "Key": "input/3232cec7-ba0a-439f-ba07-cb54c8072959.mp3",
+            "Bucket": "ciserver-inputbucket7b6df88a-e3az0a7ra2ep"
+        },
+        "Summary": {
+            "Summary": "<answer>\nThe agent was feeling unwell and had a fever. The customer advised the agent to rest, drink lots of fluids, eat easy to digest cooked foods, and avoid raw fruits/vegetables. The customer recommended taking a break from the program until recovered, meeting with a doctor, and staying hydrated. The customer offered to pause the program and restart once the agent felt better.\n</answer>",
+            "Actions": "The agent said \"Yeah\", \"Thank you\", and \"All right\".",
+            "Topic": "n/a",
+            "Politeness": "no",
+            "Callback": "yes",
+            "Product": "n/a",
+            "Resolved": "n/a",
+            "AgentSentiment": "Neutral",
+            "CustomerSentiment": "Neutral"
+        },
+        "Language": "english",
+        "LanguageCode": "en"
+    }
+}

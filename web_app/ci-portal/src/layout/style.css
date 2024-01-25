@@ -1,0 +1,22 @@
+/*
+ * # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * # SPDX-License-Identifier: MIT-0
+ */
+
+#top-nav {
+    position: sticky;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1002;
+}
+
+#bottom-bar {
+    font-weight: 700;
+    font-family: var("Open Sans", "Helvetica Neue", "Roboto", "Arial", "sans-serif");
+    font-size: 14px;
+    background-color: rgb(15, 27, 42);
+    color: rgb(209, 213, 219);
+    text-align: center;
+    padding: 10px;
+}

@@ -1,0 +1,134 @@
+/*
+ * # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * # SPDX-License-Identifier: MIT-0
+ */
+
+ body {
+  margin: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(270deg,
+      rgb(121, 92, 138) 0%,
+      rgb(59, 39, 92) 19%,
+      rgb(7, 37, 70) 61%,
+      rgba(24, 30, 62, 1) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Dashboard CSS */
+.highlight {
+  background-color: var(--highlight-colour);
+}
+
+.entity_box {
+  display: inline-block;
+  width: 1.7em;
+  border-radius: 8px;
+  color: var(--bs-dark);
+}
+
+.react-datepicker__input-container>input {
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 80%);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 7px 8px;
+  width: 100%;
+}
+
+.react-datepicker__input-container>input:focus {
+  outline: 1px solid var(--bs-blue);
+}
+
+img.sentiment {
+  display: inline;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+span.segment {
+  color: cadetblue;
+  cursor: pointer;
+}
+
+img.sentiment-icon {
+  width: 40px;
+}
+
+tr.contact-table {
+  cursor: pointer;
+}
+
+span.audio-start {
+  color: cadetblue;
+  cursor: pointer;
+}
+
+.highlight {
+  background-color: var(--highlight-colour);
+}
+
+.translated-content {
+  background-color: #a9f0fc;
+}
+
+
+.charts {
+  flex: 2 0 300px;
+}
+
+.transcribe-col {
+  flex: 1 1 550px;
+
+}
+
+.call-details-col {
+  flex: 1 1 550px;
+}
+
+.playing {
+  background-color: #ffff00;
+  text-decoration: underline;
+}
+
+.promptActionItems {
+  display: block;
+  float: right;
+}
+
+.promptInfo {
+  font-size: 11px;
+  font-style: italic;
+  color: #9d9b9b;
+  letter-spacing: .5px;
+}
+
+#modal_group_Detail svg { display: none;}
+#modal_group svg { display: none;}
+
+.prompt_info{
+  font-size: 13px;
+  color: #9d9b9b;
+  letter-spacing: .4px;
+} 
+.prompt_info_message{
+  color: rgb(120, 120, 232);
+  font-weight: bold;
+}
+
+.manual_query_response{
+  padding-left: 9px;
+}
+
+.custom_wf_response{
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #dddddd;
+  padding-left: 9px;
+}
