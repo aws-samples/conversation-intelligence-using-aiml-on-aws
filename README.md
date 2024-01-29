@@ -4,19 +4,22 @@
 
 ## 1. Overview
 
-Businesses and industries often need to provide customer help: before a purchase of your product or service, during an
+Businesses and industries often need to provide customer help, before a purchase of your product or service, during an
 existing customer support instance, or throughout their core workflow. For example, a healthcare company may want to
 engage users on a weight loss program or a fintech company might want to verify identity information or explain loan
 application steps - customer interaction happens in many ways. The key is being ready to help your customers when and
-how they need it. No matter what the situation is, you as a business, need to ensure few things,
+how they need it. As a business, you may need to ensure few things including,
 
-- **Understand your customer well and their journey** - where is your customer coming from, why are they here and what
+- **Understanding your customer well and their journey** - where is your customer coming from, why are they here and
+  what
   is
   the best way to solve their problems.
-- **Understand outcome and business impact** – how well you served them, how brief contacts were required to solve the
+- **Understanding outcome and business impact** – how well you served them, how brief contacts were required to solve
+  the
   issue, how much was the ROI for your business, how much future wallet would it bring.
-- **Understand the opportunities** - how do we use all the data to continuously improve customer experience and margins.
-- **Understand compliance needs** – Are there certain regulations that we need to adhere to? GDPR? HIPAA?
+- **Understanding the opportunities** - how do we use all the data to continuously improve customer experience and
+  margins.
+- **Understanding compliance needs** – Are there certain regulations that we need to adhere to? GDPR? HIPAA?
 
 Many organizations currently rely on a manual quality control process for customer interactions. This involves randomly
 sampling a limited number of conversations for analysis. For regulated industries like healthcare and fintech, more
@@ -28,8 +31,9 @@ Organizations interact with customers across multiple channels - phone, video, c
 intelligence" solution that combines AI/ML technologies is needed to enable processing of entire customer conversations,
 regardless of channel.
 
-This sample solution leverages open source models and AWS AI and ML services to extract insights from audio calls, chat
-conversations and potentially video. Key capabilities include:
+This sample solution leverages Amazon Web Services (AWS) AI/ML services and open source models to extract insights from
+audio calls, chat
+conversations and could potentially do video as well. Key capabilities include:
 
 - Sentiment analysis
 - Identifying call drivers and emerging trends
@@ -67,13 +71,12 @@ process flow below,
 
 #### 1.2.1 Speaker Diarization
 
-The first step is to identify speakers. To improve accuracy, and identifiy speakers on the conversation, we
+The first step is to identify speakers. To improve accuracy, and identify speakers on the conversation, we
 need to first perform diarization. Speaker Diarization is the process of the model helping you understand, "Who spoke
 when?". We can use models like Pyannote Audio or Nvidia’s NeMo to diarize input audio files. We use Pyannote.audio,
-which is an
-open-source toolkit written in Python for speaker diarization. This is based on PyTorch machine learning framework, and
-it comes with state-of-the-art pretrained models and pipelines. It can be further finetuned to your own data for even
-better performance.
+which is an open-source toolkit written in Python for speaker diarization. This is based on PyTorch machine learning
+framework, and it comes with state-of-the-art pretrained models and pipelines. It can be further fine-tuned to your own
+data for even better performance.
 
 #### 1.2.2 Splitting Audio Files
 
@@ -115,8 +118,7 @@ comparing with the database to ensure the caller was legitimate.
 > from [Setting up Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/setup-express.html) and make sure you
 > have enough storage to build models (recommended to have 100GB). After provisioning, ensure you increased disk
 > capacity to 100 GB following the steps
->
-here [Resize Environment Storage](https://docs.aws.amazon.com/cloud9/latest/user-guide/move-environment.html#move-environment-resize)
+> here [Resize Environment Storage](https://docs.aws.amazon.com/cloud9/latest/user-guide/move-environment.html#move-environment-resize)
 
 This project is set up like a standard Python based CDK project. The initialization process also creates a virtualenv
 within this project, stored under the .venv directory. To create the virtualenv it assumes that there is a `python3`
@@ -229,6 +231,7 @@ the time. We recommend to adjust application scaling policy in [diarization_stac
 and [transcription_stack](ml_stack/cdk/transcription_stack.py) based on your usage pattern._
 
 ### 2.7 Other useful CDK commands
+
 * `cdk ls`          list all stacks in the app
 * `cdk synth`       emits the synthesized CloudFormation template
 * `cdk deploy`      deploy this stack to your default AWS account/region
@@ -236,6 +239,7 @@ and [transcription_stack](ml_stack/cdk/transcription_stack.py) based on your usa
 * `cdk docs`        open CDK documentation
 
 ### 2.8 CDK Stack Details
+
 There are three stakes in this solution
 
 1. ```ml_stack``` - Stack with speaker diarization and transcription models and its respective resources. The stack
@@ -244,9 +248,164 @@ There are three stakes in this solution
 3. ```web_app``` - Stack with the dashboard application and APIs
    using ```Amazon API Gateway```, ```AWS Lambda```, ```AWS Amplify```
 
-### 2.9 Clean up 
-For deleting this stack, run following cdk command.
+## 3. Usage
+
+1. Check for ```cdk``` output messages for Conversation Bucket name, and CloudFront URL
+2. Go to S3, and open S3 bucket named ```ci-process-conversationsxxxxxx-xxx``` as mentioned in the CDK output
+3. Create a prefix named ```input``` and upload sample audio files inside the prefix. If you don't have samples, you
+   shall use files
+   from https://github.com/aws-samples/amazon-transcribe-post-call-analytics/tree/develop/pca-samples/src/samples
+4. Once audio files are upload, you shall check workflow status by opening Step Function ```ciworkflowxxxx```
+5. Then, login to the "Conversation Intelligence" dashboard using the CDN URL.
+6. Create a user and login to the dashboard.
+7. While creating user, give your email and password, and you will receive verification code. Enter the verification
+   code to successfully register.
+8. Once you login, there are three major modules, 1. Conversation List, 2. Call Details, and 3. Workflows
+   Administration.
+
+### 3.1 Conversation List
+
+After login, you will land in to the conversation list page. This is a paginated list of all conversations that are
+processed by the solution.
+![Alt Conversation List](images/call-list.png "Conversation List")
+
+You also have advanced search/filter feature that allows users to filter list by job name (audio file), language code,
+duration and other criteria as shown.
+
+![Alt Advanced Search / Filter Feature](images/call-list-search.png "Advanced search/filter feature")
+
+You can click Job name to get into the conversation details page.
+
+### 3.2 Conversation Details
+
+Conversation Details page has multiple sections 1. Call Metadata, 2. Sentiment and Speaker Insights, 3. Entities, 4.
+Insights by Generative AI, 5. Analysis powered by Generative AI, and 5. Turn by turn transcript and translated
+transcript
+
+#### 3.2.1 Conversation Metadata
+
+Call metadata section has file and process metadata including uploaded time, call duration, language, customer and agent
+sentiment and file format
+![Alt Conversation Metadata](images/call-details-meta.png "Conversation Metadata")
+
+#### 3.2.2 Sentiment and Speaker Insights
+
+Sentiment and Speaker Insights section has few charts displaying three insights
+
+1. Sentiment progress across four quarters of the call
+2. Speaker time, total time various speakers conversed across the call
+3. Turn by turn sentiment
+   ![Alt Sentiment and Speaker Insights](images/call-details-sentiment-speaker.png "Sentiment and Speaker Insights")
+
+#### 3.2.3 Entities
+
+This section displays all the entities detected by Amazon Comprehend throughout the call. This is grouped in to various
+categories and displayed
+![Alt Entities](images/call-details-entities.png "Entities")
+
+#### 3.2.4 Insights by Generative AI
+
+This section displays summary, action item, topic, product, resolution, politeness and call back which are extracted by
+Generative AI. The transcript is given to the LLM and based on the defined prompts, the values are extracted. These
+prompts are customizable under "Workflows Administration" module
+
+![Alt Insights by Generative AI](images/call-details-insights.png "Insights by Generative AI")
+
+#### 3.2.5 Analysis powered by Generative AI
+
+This section allows you to run ad-hoc prompts to extract additional insights by deep diving into the selected
+conversation. It also lists additional workflow prompts that can extract insights based on specific functions (e.g.
+sales, product support). These prompts help obtain targeted data and insights.
+
+![Alt Analysis powered by Generative AI](images/call-details-analysis.png "Analysis powered by Generative AI")
+
+#### 3.2.6 Transcript / Translated Transcript with Audio Player
+
+This section displays entire conversation as turn-by-turn message along with sentiment detected for each turn. This
+section also has an option to switch to translated version if the original language is not English. It also has audio
+player widget to play entire audio which also highlights the conversation turn based on time cue.
+
+![Alt Transcript](images/call-details-transcript.png "Transcript")
+
+### 3.3 Workflows Administration
+
+You can open Workflows administration by choosing the option from navigation bar.
+
+![Alt Workflows Navigation Menu](images/workflows.png "Workflows Navigation Menu")
+
+It will have ```Default Workflow``` that contains all the prompts that are required to extract data needed to
+give [```Insights```](#324-insights-by-generative-ai) about the call. These prompts are customizable by selecting
+the ```Default Workflow``` card. You can edit or add new workflows. Please note that you won't be able to delete Default
+Workflows, but you can edit prompts inside.
+
+![Alt Workflows Administration](images/workflows-administration.png "Workflows Administration")
+
+#### 3.3.1 Editing Prompts within Workflows
+
+Each workflow can have upto 10 prompts (soft limit that can be modified in the code). By default, the solution
+leverages ```Anthropic Claude v2```
+using ```Amazon Bedrock``` APIs. This can be entirely modified easily in the respective lambdas.
+
+![Alt Prompts Listing](images/workflows-administration-details.png "Prompts Listing")
+
+Upon clicking edit icon next to each prompt, you can modify the prompt as shown in the image below. The prompts have to
+be in specific
+formats that the chosen Large Language Model (LLM) understands, or it will throw error during execution.
+
+![Alt Prompts Editing](images/workflows-administration-prompt-edit.png "Prompts Editing")
+
+# 4. What's next?
+
+We are working on code enhancements and additional features to make speakers configurable.
+
+# 5. Conclusion
+
+This conversation intelligence using AIML offers a scalable, and cost-effective approach to extract summary and insights
+from agent to customer conversations. It uses Amazon SageMaker, Amazon Bedrock, Amazon Comprehend and other AIML
+services along with a dashboard that helps contact center quality teams. This solution is published as open source and
+expect it to be a starting point of your own solution. This can be plugged in to your existing flows, and can be
+customized to fit your specific needs. Help us make this sample solution better by contributing back with improvements
+and fixes via GitHub pull requests. For expert
+assistance, [AWS Professional Services](https://aws.amazon.com/professional-services/) and
+other [AWS Partners](https://aws.amazon.com/partners/) are here to help.
+
+## 6. Clean Up
+
+Congratulations! :tada: You have completed all the steps for setting up your conversation intelligence sample solution
+using AIML on AWS.
+
+**To make sure you are not charged for any unwanted services, you can clean up by deleting the stack created in
+the _[Deploy](#2-steps-to-deploy)_ section and its resources.**
+
+When you’re finished experimenting with this sample solution, clean up your resources by using the AWS CloudFormation
+console to delete the ```ci-*``` stacks that you deployed. This deletes resources that were created by deploying the
+solution. The recording S3 buckets, the DynamoDB table and CloudWatch Log groups are retained after the stack is deleted
+to avoid deleting your data.
+
+Or, for deleting this stack, run following cdk command.
+
 ```
 $ cdk destroy --all
 ```
-_Please note that the processed files, and logs will still persist based on the configured policies._  
+
+[(Back to top)](#1-overview)
+
+## 7. Contributing
+
+Your contributions are always welcome! Please have a look at the [contribution guidelines](CONTRIBUTING.md) first. :
+tada:
+
+[(Back to top)](#1-overview)
+
+## 8. Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+[(Back to top)](#1-overview)
+
+## 9. License Summary
+
+This sample code is made available under the MIT-0 license. See the [LICENSE](LICENSE) file.
+
+[(Back to top)](#1-overview)
+  
