@@ -10,6 +10,6 @@ RUN apt-get update \
 
 WORKDIR /app
 ADD . /app
-
-RUN pip3 install -r requirements.txt
+ENV PIP_BREAK_SYSTEM_PACKAGES 1
+RUN pip3 install -q boto3~=1.28.65 pydub~=0.25.1
 ENTRYPOINT ["python3","chunking.py"]

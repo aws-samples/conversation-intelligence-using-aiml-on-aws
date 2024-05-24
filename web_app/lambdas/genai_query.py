@@ -23,7 +23,7 @@ ENDPOINT_URL = os.environ.get(
     "ENDPOINT_URL", f"https://bedrock-runtime.{AWS_REGION}.amazonaws.com"
 )
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", "1024"))
-MODEL_ID = str(os.getenv("MODEL_ID", "anthropic.claude-v2"))
+MODEL_ID = str(os.getenv("MODEL_ID", "anthropic.claude-3-sonnet-20240229-v1:0"))
 
 DEFAULT_MAX_TOKENS = 1024
 SUCCESS = "SUCCESS"
@@ -36,7 +36,7 @@ def get_request_body(modelId, parameters, prompt):
     provider = modelId.split(".")[0]
     request_body = None
     if provider == "anthropic":
-        request_body = {"prompt": prompt, "max_tokens_to_sample": DEFAULT_MAX_TOKENS}
+        request_body = { "messages": [{"role": "user","content": [{"type": "text","text": prompt}]}],"anthropic_version": "bedrock-2023-05-31","max_tokens": DEFAULT_MAX_TOKENS}
         request_body.update(parameters)
     elif provider == "ai21":
         request_body = {"prompt": prompt, "maxTokens": DEFAULT_MAX_TOKENS}
@@ -58,7 +58,7 @@ def get_generate_text(modelId, response):
     generated_text = None
     if provider == "anthropic":
         response_body = json.loads(response.get("body").read().decode())
-        generated_text = response_body.get("completion")
+        generated_text = response_body["content"][0]["text"]
     elif provider == "ai21":
         response_body = json.loads(response.get("body").read())
         generated_text = response_body.get("completions")[0].get("data").get("text")
@@ -101,7 +101,7 @@ def get_bedrock_request_body(modelId, parameters, prompt):
     provider = modelId.split(".")[0]
     request_body = None
     if provider == "anthropic":
-        request_body = {"prompt": prompt, "max_tokens_to_sample": MAX_TOKENS}
+        request_body = { "messages": [{"role": "user","content": [{"type": "text","text": prompt}]}],"anthropic_version": "bedrock-2023-05-31","max_tokens": MAX_TOKENS}
         request_body.update(parameters)
     elif provider == "ai21":
         request_body = {"prompt": prompt, "maxTokens": MAX_TOKENS}
@@ -123,7 +123,7 @@ def get_bedrock_generate_text(modelId, response):
     generated_text = None
     if provider == "anthropic":
         response_body = json.loads(response.get("body").read().decode())
-        generated_text = response_body.get("completion")
+        generated_text = response_body["content"][0]["text"]
     elif provider == "ai21":
         response_body = json.loads(response.get("body").read())
         generated_text = response_body.get("completions")[0].get("data").get("text")
