@@ -68,7 +68,7 @@ def handler(event, context):
         event['input_file'] = file_name_without_extn
         event['output_s3_key'] = output_key
         event['audio_chunks_s3_key'] = output_key + "/chunks/"
-        event['txt_chunks_s3_key'] = output_key + "/txt_chunks/"
+        event['txt_chunks_s3_key'] = output_key + "/txt_chunks/data.json.gz"
         event['diarization_file'] = file_name_without_extn + '.diarization.txt'
         event['output_file'] = file_name_without_extn + ".json"
         event['original_transcription_file'] = chat_transcript_file_path
