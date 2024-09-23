@@ -1,22 +1,17 @@
 #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #  SPDX-License-Identifier: MIT-0
 
+import boto3
+import gzip
+import json
 import pickle
 import re
-import time
-import boto3
 import server_constants
+import time
 
 print("Loading Combing Transcription Files...")
 s3_client = boto3.client("s3")
 tmp_prefix = '/tmp/'
-
-spacermilli = 2000
-def millisec(time_str):
-    spl = time_str.split(":")
-    s = int((int(spl[0]) * 60 * 60 + int(spl[1]) * 60 + float(spl[2])) * 1000)
-    return s
-
 
 def combine_txt_transcriptions(TRANSCRIPTION_FILE_NAME, groups, txt_chunks_s3_key, language, BUCKET, output_s3_key):
     fn_start = time.time()
@@ -31,34 +26,35 @@ def combine_txt_transcriptions(TRANSCRIPTION_FILE_NAME, groups, txt_chunks_s3_ke
     local_transcription_file = tmp_prefix + TRANSCRIPTION_FILE_NAME
     text_file = open(local_transcription_file, "w")
 
-    for g in groups:
-        shift = re.findall("[0-9]+:[0-9]+:[0-9]+\.[0-9]+", string=g[0])[0]
-        # Start time in the original video
-        shift = millisec(shift) - spacermilli
-        shift = max(shift, 0)
+    # Download transcription model output file
+    tmp_output_path = tmp_prefix + 'data.json.gz'
+    s3_client.download_file(BUCKET, f"{output_s3_key}/{txt_chunks_s3_key}", tmp_output_path)
+    with gzip.open(tmp_output_path, 'r+') as file:
+        model_output = json.load(file)
+    
+    is_translation = language not in {'original', 'en'}
+    original_txt_prefix, translated_txt_prefix = 'original_', 'translated_'
+
+    for group in groups:
+        speaker = group[0].split()[-1]
+        if speaker not in server_constants.SPEAKERS:
+            continue
+        speaker_str = server_constants.SPEAKERS[speaker]
+        speaker_str = re.sub("[!^:(),']", "", str(speaker))
         gidx += 1
 
-        file_prefix = language
-        if language != 'original' and language != 'en':
-            file_prefix = "translated"
-        # Download chunks locally to combine
-        download_file_path = f"{txt_chunks_s3_key}{gidx}.{file_prefix}.txt"
-        tmp_chunk_path = f"{tmp_prefix}{gidx}.{file_prefix}.txt"
+        original_text_info = model_output.get(f'{original_txt_prefix}{gidx}', {})
+        translated_text_info = model_output.get(f'{translated_txt_prefix}{gidx}', {})
 
-        s3_client.download_file(BUCKET, download_file_path, tmp_chunk_path)
-        captions = open(tmp_chunk_path, "r+")
+        chunk_info = translated_text_info if is_translation else original_text_info
+        chunk_txt = re.sub(r'[!\n]', '', chunk_info.get('text', '')).strip()
 
-        if captions:
-            speaker = g[0].split()[-1]
-            if speaker in server_constants.SPEAKERS:
-                speaker = server_constants.SPEAKERS[speaker]
-                # Removing speaker text with (), comma and other characters
-                speaker_str = re.sub("[!^:(),']", "", str(speaker))
-                for c in captions:
-                    s = speaker_str + ":" + str(c)
-                    res = re.sub(r"[!\n]", "", s)
-                    text_file.write(res + "\n")
-        captions.close()
+        if not chunk_txt:
+            continue
+
+        chunk_str = speaker_str + ":" + str(chunk_txt)
+        res = re.sub(r"[!\n]", "", chunk_str)
+        text_file.write(f'{res}\n')
 
     group_file.close()
     text_file.close()

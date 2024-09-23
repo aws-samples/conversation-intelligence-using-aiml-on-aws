@@ -4,10 +4,10 @@
 from __future__ import print_function
 
 import glob
+import gzip
 import json
 import os
-import random
-import string
+import uuid
 from urllib.parse import urlparse
 
 import boto3
@@ -38,91 +38,76 @@ class TranslateService(object):
         return cls.model
 
     @classmethod
-    def transcribe(cls, chunks_path, task, s3_output_uri):
+    def get_file_info(cls, model, voice_file_name: str, task: str) -> dict:
+        """Perform required task for given file"""
+        segments, info = model.transcribe(voice_file_name, beam_size=5, task=task)
+        text = ' '
+        for segment in segments:
+            text += segment.text
+        return {
+            'text': text,
+            'language': info.language,
+            'language_probability': info.language_probability,
+        }
+
+    @classmethod
+    def process_chunks(cls, model, audio_chunk_path: str, task: str, chunk_prefix: str) -> dict:
+        """Process all audio files in given path & provide information as a dict.
+        
+        Sample:
+            audio_chunk_path structure
+                /tmp/advdsd/
+                    0.wav
+                    1.wav
+                    2.wav
+            task - `translate`
+            chunk_prefix - `translated_`
+        
+        Output:
+            {
+                'translated_0': {'text': 'Hi', 'language': 'en', 'language_probability': 0.9},
+                'translated_1': {'text': 'How are you?', 'language': 'en', 'language_probability': 0.89},
+                'translated_2': {'text': 'I am good', 'language': 'en', 'language_probability': 0.85}
+            }
+        
+        """
+        voice_files = list_files_in_directory(audio_chunk_path)
+        chunk_wise_data_map = {}
+        for file in voice_files:
+            chunk_name = file.split('/')[-1].replace('.wav', '')
+            chunk_wise_data_map[f'{chunk_prefix}{chunk_name}'] = cls.get_file_info(model, file, task)
+        return chunk_wise_data_map
+
+    @classmethod
+    def transcribe(cls, chunks_path, task, s3_output_uri) -> str:
+        """Process all audio files in given path & upload the output as json gzip file in provided S3 location"""
         model = cls.get_model()
-        temp_loc = generate_random_string(length=20)
-        if not os.path.exists(nfs_path + temp_loc):
-            os.makedirs(nfs_path + temp_loc)
+        transcription_info, translation_info = {}, {}
 
-        if(task=="translate_transcribe"):
-            print("Translation+Transcribe task")
-            voice_files = list_files_in_directory(chunks_path)
-
-            for voice_file in voice_files:    
-                result = " "
-                print(voice_file)
-                segments, info = model.transcribe(voice_file, beam_size=5, task="translate")
-                
-                for segment in segments:
-                    result += segment.text
-                                
-                out_file = nfs_path + temp_loc + '/'+ extract_filename_without_extension(voice_file)+'.translated.txt'
-                with open(out_file, 'w') as file:
-                    file.write(result)
-
-                upload_file_to_s3(out_file, s3_output_uri)
-                segments, info = model.transcribe(voice_file, beam_size=5)
-
-                for segment in segments:
-                    result +=segment.text
-
-                out_file = nfs_path + temp_loc + '/'+ extract_filename_without_extension(voice_file)+'.original.txt'
-                with open(out_file, 'w') as file:
-                    file.write(result)
-
-                upload_file_to_s3(out_file, s3_output_uri)
-
-        elif(task=="translate"):
-            print("Translation task only")
-            voice_files = list_files_in_directory(chunks_path)
-
-            for voice_file in voice_files:    
-                result = " "
-                print(voice_file)
-                segments, info = model.transcribe(voice_file, beam_size=5, task="translate")
-                
-                for segment in segments:
-                    result += segment.text
-                                
-                out_file = nfs_path + temp_loc + '/'+ extract_filename_without_extension(voice_file)+'.translated.txt'
-                with open(out_file, 'w') as file:
-                    file.write(result)
-
-                upload_file_to_s3(out_file, s3_output_uri)
-
+        if task == 'translate_transcribe':
+            transcription_info = cls.process_chunks(model, chunks_path, 'transcribe', 'original_')
+            translation_info = cls.process_chunks(model, chunks_path, 'translate', 'translated_')
+        elif task == 'translate':
+            translation_info = cls.process_chunks(model, chunks_path, 'translate', 'translated_')
         else:
-            print("Transcribe task only")
-            voice_files = list_files_in_directory(chunks_path)
+            # By default perform transcribe task
+            transcription_info = cls.process_chunks(model, chunks_path, 'transcribe', 'original_')
 
-            for voice_file in voice_files:
-                result = " " 
-                print(voice_file)
-                segments, info = model.transcribe(voice_file, beam_size=5)
-                for segment in segments:
-                    result += segment.text
+        # Prepare final data to be dumped to s3 as a gzip file
+        final_data = {'transcription_info': transcription_info, 'translation_info': translation_info}
+        dump_file = f'{nfs_path}op_{generate_random_string()}.json.gz'
+        with gzip.open(dump_file, 'wb') as f:
+            f.write(json.dumps(final_data, ensure_ascii=False).encode('utf-8'))
 
-                out_file = nfs_path + temp_loc + '/'+ extract_filename_without_extension(voice_file)+'.original.txt'
-                with open(out_file, 'w') as file:
-                    file.write(result)
-
-                upload_file_to_s3(out_file, s3_output_uri)
-
-        return "OK"
+        upload_file_to_s3(dump_file, s3_output_uri)
+        return 'OK'
 
 
 app = flask.Flask(__name__)
 
 
-def generate_random_string(length=20):
-    characters = string.ascii_letters + string.digits
-    random_string = ''.join(random.choice(characters) for _ in range(length))
-    return random_string
-
-
-def extract_filename_without_extension(file_path):
-    base_name = os.path.basename(file_path)
-    filename_without_extension, _ = os.path.splitext(base_name)
-    return filename_without_extension
+def generate_random_string() -> str:
+    return uuid.uuid4().hex
 
 
 def upload_file_to_s3(file_path, s3_uri):
@@ -130,9 +115,6 @@ def upload_file_to_s3(file_path, s3_uri):
     parsed_uri = urlparse(s3_uri)
     bucket_name = parsed_uri.netloc
     key = parsed_uri.path.lstrip('/')
-
-    # Use the local file's name as the key (filename) in S3
-    key = os.path.join(key, os.path.basename(file_path))
 
     # Initialize a Boto3 S3 client with AWS credentials
     s3 = boto3.client('s3')
@@ -162,6 +144,7 @@ def download_s3_bucket_from_uri(s3_uri, local_folder):
         os.makedirs(local_folder)
 
     # Download each object from the S3 bucket to the local folder
+    object_count = 0
     for obj in objects.get('Contents', []):
         # Construct the local file path by removing the key prefix
         local_file_path = os.path.join(local_folder, obj['Key'].replace(key_prefix, '', 1))
@@ -169,6 +152,20 @@ def download_s3_bucket_from_uri(s3_uri, local_folder):
         # Download the file from S3
         s3.download_file(bucket_name, obj['Key'], local_file_path)
         print(f"Downloaded: {obj['Key']} to {local_file_path}")
+        object_count += 1
+    return object_count
+
+
+
+def clear_directory(path: str):
+    """Delete directory & all its contents from given path"""
+    try:
+        for file in list_files_in_directory(path):
+            os.remove(file)
+    except FileNotFoundError:
+        pass
+    except Exception:
+        pass
 
 
 def list_files_in_directory(directory):
@@ -184,18 +181,23 @@ def ping():
 @app.route("/invocations", methods=["POST"])
 def transcribe():
     res = None
-
     text = request.data.decode("utf-8")
     data = json.loads(text)
 
     input_location = data['input_location']
     task = data['task']
     output_location = data['output_location']
-    print(f"Input chunks location: {input_location}")
+    print(f'Input chunks location: {input_location}')
 
-    chunk_folder_path = nfs_path+generate_random_string(20)
-    download_s3_bucket_from_uri(input_location, chunk_folder_path)
+    chunk_folder_path = f'{nfs_path}{generate_random_string()}'
+    objects_count = download_s3_bucket_from_uri(input_location, chunk_folder_path)
+    print(f'Downloaded {objects_count} files from S3')
+
     res = TranslateService.transcribe(chunk_folder_path, task, output_location)    
-    print(f"Completed {task} for {input_location}")
-    return flask.Response(response=res, status=200, mimetype="text/plain")
+    print(f'Completed {task} for {input_location}')
+
+    # Clear storage
+    clear_directory(chunk_folder_path)
+
+    return flask.Response(response=res, status=200, mimetype='text/plain')
 
