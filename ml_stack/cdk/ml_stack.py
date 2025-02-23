@@ -120,6 +120,11 @@ class MLStack(Stack):
                 "AmazonEC2ContainerRegistryFullAccess"
             )
         )
+        model_execution_role.add_managed_policy(
+            iam.ManagedPolicy.from_aws_managed_policy_name(
+                "AmazonS3FullAccess"
+            )
+        )
         model_execution_role.attach_inline_policy(sagemaker_invocation_policy)
 
         SpeakerDiarizationStack(
