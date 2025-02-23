@@ -124,6 +124,8 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
 sudo systemctl start docker
 ```  
+Ensure the user has permissions to access the docker service.
+
 ### 2.2 Setting up the project
 
 This project is set up like a standard Python based CDK project. The initialization process also creates a virtualenv
