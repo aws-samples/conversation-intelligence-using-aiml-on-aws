@@ -26,6 +26,7 @@ RUN pip install --upgrade torch==2.4.1
 RUN pip --no-cache-dir install -U torchvision torchaudio torchtext torchdata
 RUN	pip install -q xformers triton
 RUN pip --no-cache-dir install git+https://github.com/pyannote/pyannote-audio.git@28fcf502db86747bafb126720d6b95d7c8277295 setuptools-rust flask gunicorn pydub boto3 botocore
+RUN pip install --upgrade numpy==1.26.4
 
 COPY src /opt/program
 WORKDIR /opt/program
