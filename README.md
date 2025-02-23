@@ -112,13 +112,19 @@ comparing with the database to ensure the caller was legitimate.
 
 ### 2.1 Setting up cloud environment to build models and web application
 
-> Please note that the models used in this sample solution need significant storage and network. We
-> recommend to use AWS Cloud9 IDE to build and deploy. Also, since this build ML model containers
-> and deploy to Amazon SageMaker Inference Endpoints, its better to run these on Cloud9. Follow instructions
-> from [Setting up Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/setup-express.html) and make sure you
-> have enough storage to build models (recommended to have 100GB). After provisioning, ensure you increased disk
-> capacity to 100 GB following the steps
-> here [Resize Environment Storage](https://docs.aws.amazon.com/cloud9/latest/user-guide/move-environment.html#move-environment-resize)
+#### Option1: Cloud9 Based Setup
+Note that the models used in this sample solution need significant storage and network. We recommend to use AWS Cloud9 IDE to build and deploy. Also, since this build ML model containers and deploy to Amazon SageMaker Inference Endpoints, its better to run these on Cloud9. Follow instructions from [Setting up Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/setup-express.html) and make sure you have enough storage to build models (recommended to have 100GB). After provisioning, ensure you increased disk capacity to 100 GB following the steps here [Resize Environment Storage](https://docs.aws.amazon.com/cloud9/latest/user-guide/move-environment.html#move-environment-resize)
+
+#### Option2: EC2 Based Setup
+Note that the models used in this sample solution need significant storage and network. We recommend to use an EC2 Instance (m5.large with 200GB GP3 storage) to build and deploy. Install the necessary components using the following commands
+```
+sudo yum install docker nodejs git
+sudo npm install -g aws-cdk
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+sudo systemctl start docker
+```  
+### 2.2 Setting up the project
 
 This project is set up like a standard Python based CDK project. The initialization process also creates a virtualenv
 within this project, stored under the .venv directory. To create the virtualenv it assumes that there is a `python3`
@@ -153,7 +159,7 @@ pip install -r requirements.txt
 To add additional dependencies, for example other CDK libraries, just add to your requirements.txt file and rerun
 the `pip install -r requirements.txt` command.
 
-### 2.2 Setting up AWS environment
+### 2.3 Setting up AWS environment
 
 We need to configure access credentials in the cloud environment before deploying the CDK stack. For that,
 run ```aws configure``` command for the first time to confiture account.
@@ -169,7 +175,7 @@ has access to Amazon Bedrock
 REGION = "us-west-2"
 ```
 
-### 2.3 Building web application
+### 2.4 Building web application
 
 The web application based on [Cloudscape](https://cloudscape.design/). The source code is
 within [```web_app/ci-portal```](web_app/ci-portal). We need to install and build using npm.
@@ -180,7 +186,7 @@ npm install
 npm run build
 ```
 
-### 2.4 Enable Amazon Bedrock Model Access
+### 2.5 Enable Amazon Bedrock Model Access
 
 Amazon Bedrock users need to request access to models before they are available for use. Model access can be managed
 only in the Amazon Bedrock console. To request access to a models, select the Model access link in the left side
@@ -189,7 +195,7 @@ navigation panel in the Amazon Bedrock console.
 > to [add model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) Amazon Bedrock in the
 > region where you are deploying this solution.
 
-### 2.5 Configure HuggingFace Access token in ```cfg.py```
+### 2.6 Configure HuggingFace Access token in ```cfg.py```
 
 We are using ```pyannote/speaker-diarization-3.0```and ```pyannote/segmentation-3.0``` which are pretrained models from
 HuggingFace. Please ensure you add your [HuggingFace Security Token](https://huggingface.co/docs/hub/security-tokens)
@@ -206,7 +212,7 @@ to [```cfg.py```](cfg.py), or else, the solution will fail while executing.
 HF_TOKEN = 'hf_xxxx'
 ```
 
-### 2.6 Bootstrap and Deploy the stacks
+### 2.7 Bootstrap and Deploy the stacks
 
 If you are setting up CDK environment for the first time in the region, then run
 
@@ -230,7 +236,7 @@ _The CDK stack will deploy two ```g5.2xlarge``` instances for SageMaker Inferenc
 the time. We recommend to adjust application scaling policy in [diarization_stack](ml_stack/cdk/diarization_stack.py)
 and [transcription_stack](ml_stack/cdk/transcription_stack.py) based on your usage pattern._
 
-### 2.7 Other useful CDK commands
+### 2.8 Other useful CDK commands
 
 * `cdk ls`          list all stacks in the app
 * `cdk synth`       emits the synthesized CloudFormation template
@@ -238,7 +244,7 @@ and [transcription_stack](ml_stack/cdk/transcription_stack.py) based on your usa
 * `cdk diff`        compare deployed stack with current state
 * `cdk docs`        open CDK documentation
 
-### 2.8 CDK Stack Details
+### 2.9 CDK Stack Details
 
 There are three stakes in this solution
 
