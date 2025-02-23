@@ -3,7 +3,7 @@
 
 import json
 import os
-
+import time
 import boto3
 
 print("Loading Summarization Fn...")
@@ -218,6 +218,7 @@ def handler(e, context):
         prompt = llm_summarization_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["Summarization"] = query_response
+        time.sleep(30)
 
         llm_action_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_ACTION_PROMPT
@@ -225,6 +226,7 @@ def handler(e, context):
         prompt = llm_action_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["ActionItems"] = query_response
+        time.sleep(30)
 
         llm_topic_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_TOPIC_PROMPT
@@ -232,6 +234,7 @@ def handler(e, context):
         prompt = llm_topic_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["Topic"] = query_response
+        time.sleep(30)
 
         llm_polite_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_POLITE_PROMPT
@@ -239,6 +242,7 @@ def handler(e, context):
         prompt = llm_polite_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["Politeness"] = query_response
+        time.sleep(30)
 
         llm_callback_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_CALLBACK_PROMPT
@@ -246,6 +250,7 @@ def handler(e, context):
         prompt = llm_callback_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["Callback"] = query_response
+        time.sleep(30)
 
         llm_product_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_PRODUCT_PROMPT
@@ -253,6 +258,7 @@ def handler(e, context):
         prompt = llm_product_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["Product"] = query_response
+        time.sleep(30)
 
         llm_resolved_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_RESOLVED_PROMPT
@@ -260,6 +266,7 @@ def handler(e, context):
         prompt = llm_resolved_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["Resolution"] = query_response
+        time.sleep(30)
 
         llm_agent_sentiment_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_AGENT_SENTIMENT_PROMPT
@@ -267,6 +274,7 @@ def handler(e, context):
         prompt = llm_agent_sentiment_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["AgentSentiment"] = str(query_response).split(',', 1)[0]
+        time.sleep(30)
 
         llm_customer_sentiment_prompt = ssm_client.get_parameter(
             Name=SSM_LLM_CUSTOMER_SENTIMENT_PROMPT
@@ -274,6 +282,7 @@ def handler(e, context):
         prompt = llm_customer_sentiment_prompt["Parameter"]["Value"]
         query_response = generate_bedrock_query(prompt, transcript_data, "")
         event["CustomerSentiment"] = str(query_response).split(',', 1)[0]
+        time.sleep(30)
 
         print(f"Summarization compeleted for {output_key}")
     except Exception as err:
