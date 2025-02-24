@@ -123,8 +123,9 @@ sudo npm install -g aws-cdk
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
 sudo systemctl start docker
+sudo usermod -a -G docker ec2-user
 ```  
-Ensure the user has permissions to access the docker service.
+Ensure the user has permissions to access the docker service by logging out of the shell and logging in again.
 
 ### 2.2 Setting up the project
 
