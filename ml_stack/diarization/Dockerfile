@@ -10,6 +10,7 @@ RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
         python3.10 \
         python3-pip \
+        python3.10-venv \
         python3-setuptools \
         ffmpeg \
         git \
@@ -21,6 +22,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV PATH="/opt/program:${PATH}"
+
+# Set up virtual environment
+ENV VIRTUAL_ENV=/opt/program/venv
+RUN python3.10 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 RUN pip install --upgrade torch==2.4.1 
 RUN pip --no-cache-dir install -U torchvision torchaudio torchtext torchdata
